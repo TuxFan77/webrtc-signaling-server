@@ -42,6 +42,7 @@ io.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
+    socket.broadcast.emit("end-call");
     console.log(`${socket.id} has disconnected`);
     console.log(removeUser(socket.id));
   });
